@@ -1,5 +1,8 @@
 {
-    "rust-analyzer.linkedProjects": [
-        ".\\Cargo.toml"
-    ]
+  "rust-analyzer.linkedProjects": [".\\Cargo.toml"],
+
+  "workbench.colorCustomizations": {
+    // "activityBar.background": "#ffaa2c",
+    // "titleBar.activeBackground": "#ffaa2c"
+  }
 }
