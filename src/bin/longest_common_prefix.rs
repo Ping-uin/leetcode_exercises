@@ -2,22 +2,15 @@ pub struct Solution;
 
 impl Solution {
     fn find_longest_common_prefix(strs: Vec<String>) -> String {
-        let mut result = "".to_string();
-        let comparator = &strs[0].chars().collect::<Vec<_>>();
-        let mut i = 0;
-        let mut j = 0;
-        while i < strs.len() {
-            for char in strs[i].chars() {
-                if char == comparator[j] {
-                    result.push(char);
-                    if j < strs.len() - 1 {
-                        j += 1;
-                    }
-                } else {
-                    break;
+        let mut result = strs[0].clone();
+
+        for char in &strs[1..] {
+            while !char.starts_with(&result) {
+                if result.is_empty() {
+                    return "".to_string();
                 }
+                result.pop();
             }
-            i += 1;
         }
         result
     }
@@ -33,5 +26,5 @@ pub fn main() {
     println!("First longest common prefix is {}", prefix);
     strs = vec!["dog".to_string(), "racecar".to_string(), "car".to_string()];
     prefix = Solution::find_longest_common_prefix(strs);
-    println!("First longest common prefix is {}", prefix);
+    println!("Second longest common prefix is {}", prefix);
 }
